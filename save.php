@@ -13,11 +13,29 @@ if (isset($_POST['email']))
 
     } else {
 
+        $checkem=$_POST['email'];
         require_once 'database.php';
+        $check = $db -> query('SELECT email FROM users');
+        $licznik=0;
+        while($row = $check->fetch()) 
+        {  
+            //echo $row['email']."\n"; 
+            if($checkem==$row['email'])
+            {
+                $licznik+=1;
+            }
+        }
+        if ($licznik==0)
+        {
+            $query = $db -> prepare('INSERT INTO users VALUES (NULL, :email)');
+            $query -> bindValue(':email', $email, PDO::PARAM_STR);
+            $query -> execute();
+        } else {
+            $_SESSION['same_email']='Podany adres jest już zapisany na listę!';
+            header('Location: index.php');
+            exit();
+        }
         
-        $query = $db -> prepare('INSERT INTO users VALUES (NULL, :email)');
-        $query -> bindValue(':email', $email, PDO::PARAM_STR);
-        $query -> execute();
     }
 } else {
 

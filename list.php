@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+$_SESSION['fr_login']=$_POST['login'];
 require_once 'database.php';
 
 if(!isset($_SESSION['logged_id'])) {

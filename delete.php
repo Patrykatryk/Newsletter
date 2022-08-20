@@ -38,8 +38,8 @@ session_start();
                         unset($_SESSION['same_email']);
                     }
                     ?>
-                    <input type="submit" value="Zapisz się!">
-                    <p><a href="delete.php">Wypisz się z newslettera :(</a></p>
+                    <input type="submit" value="Wypisz się!">
+
                     <?php
                     if (isset($_SESSION['given_email'])) {
                         echo '<p> To nie jest poprawny adres! </p>';
