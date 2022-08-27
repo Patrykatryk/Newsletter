@@ -32,11 +32,8 @@ session_start();
                                                     <!--<?php //if (isset($_SESSION['given_email'])) echo 'value="'. $_SESSION['given_email'] . '"' ?> --->
                     </label>
                     <?php
-                    if (isset($_SESSION['same_email'])) 
-                    {
-                        echo $_SESSION['same_email'];
-                        unset($_SESSION['same_email']);
-                    }
+                    $_SESSION['delete']=true;
+                    $_SESSION['save']=false;
                     ?>
                     <input type="submit" value="Wypisz się!">
 

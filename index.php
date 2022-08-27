@@ -32,10 +32,12 @@ session_start();
                                                     <!--<?php //if (isset($_SESSION['given_email'])) echo 'value="'. $_SESSION['given_email'] . '"' ?> --->
                     </label>
                     <?php
+                    $_SESSION['save']=true;
                     if (isset($_SESSION['same_email'])) 
                     {
                         echo $_SESSION['same_email'];
                         unset($_SESSION['same_email']);
+                        
                     }
                     ?>
                     <input type="submit" value="Zapisz się!">
